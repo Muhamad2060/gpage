@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block start %}
+    <h1>This is a  contact page </h1>
+
+    <div class="container mt-5">
+
+        <form  class="col-6 mx-auto card p-3 shadow-lg" method="post" action="{% url 'send_email' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          <h2> SendEmail to US </h2>
+          <hr>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"> Subject</label>
+            <input name="subject" required type="text" class="form-control">
+          
+          </div>
+      
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Message </label>
+            <textarea name="message" required class="form-control"></textarea>
+          </div>
+          
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"> Attachment </label>
+            <input name="attachment" type="file" class="form-control">
+          </div>
+          
+          
+          <button type="submit" class="btn btn-success">SendEmail</button>
+        </form>
+    </div>
+      
+
+
+
+
+
+
+
+
+    {% endblock %}

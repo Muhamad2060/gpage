@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block start %}
+
+    <h1>This is an index page</h1>
+  
+    <table class="container">
+        <tr>
+            <th>S.no</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Servers Quality</th>
+        </tr>
+        {% for serve in serveses %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ serve.name }}</td>
+            <td>{{ serve.price }}</td>
+            <td {% if serve.price >= 500 %}  {% endif %}>
+                {% if serve.price < 500 %}
+                    Low quality serves
+                {% else %}
+                    High quality serves
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    
+    
+    
+      </table>
+      <hr>
+
+    <table class="table mt-5">
+        <thead>
+          <tr>
+            <th scope="col">Sl NO</th>
+            <th scope="col">Receipe</th>
+            <th scope="col">Receipe description</th>
+            <th scope="col">Receipe Iamage</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          {% for receipe in receipes %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{receipe.receipe_name}}</td>
+            <td>{{receipe.receipe_description}}</td>
+            <td>
+              <img src="/media/{{receipe.receipe_image}}" style="height: 100px;" > </td>
+           
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+  </div>
+  
+    
+{% endblock %}
